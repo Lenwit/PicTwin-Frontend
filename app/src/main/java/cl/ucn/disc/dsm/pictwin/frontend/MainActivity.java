@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Menu in MaterialToolbar
         MaterialToolbar toolbar = findViewById(R.id.am_mt_toolbar);
-        toolbar.setOnMenuItemClickListener(menuItem -&gt; {
+        toolbar.setOnMenuItemClickListener(menuItem -> {
             //If we click over the change theme
             if (menuItem.getItemId() == R.id.menu_theme) {
                 //Check the current theme
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return true;
             }
+            return false;
         });
 
         //Watch the view model

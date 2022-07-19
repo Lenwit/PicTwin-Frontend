@@ -1,8 +1,6 @@
 package cl.ucn.disc.dsm.pictwin.frontend.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,8 +11,6 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "users")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,8 +18,6 @@ public final class User {
     /**
      * The Id.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     private Long id;
 
@@ -32,8 +26,6 @@ public final class User {
      */
     @Getter
     @NonNull
-    @NotBlank
-    @Column(unique = true)
     private String email;
 
     /**
@@ -50,21 +42,10 @@ public final class User {
     private Integer strikes;
 
     /**
-     * The State.
-     */
-    @Enumerated(EnumType.STRING)
-    @Builder.Default
-    @Getter
-    @Setter
-    private State state = State.ACTIVE;
-
-    /**
      * The Twins.
      */
-    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
     @Builder.Default
     @Getter
-    @JsonManagedReference
     private List<Twin> twins = new ArrayList<>();
 
     /**

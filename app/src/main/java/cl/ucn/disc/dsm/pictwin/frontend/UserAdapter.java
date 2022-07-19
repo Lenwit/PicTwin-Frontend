@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,22 @@ import cl.ucn.disc.dsm.pictwin.frontend.model.User;
  * @author Mack Díaz.
  */
 public final class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
+
+    /**
+     * The View Holder.
+     */
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        protected TextView mine;
+
+        protected TextView yours;
+
+        public ViewHolder(@NonNull View view) {
+            super(view);
+            this.mine = view.findViewById(R.id.rt_tv_mine);
+            this.yours = view.findViewById(R.id.rt_tv_yours);
+        }
+    }
 
     /**
      * The User.

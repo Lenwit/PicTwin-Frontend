@@ -1,7 +1,5 @@
 package cl.ucn.disc.dsm.pictwin.frontend.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,8 +11,6 @@ import lombok.Setter;
  *
  * @author Mack Díaz Vilches.
  */
-@Entity
-@Table(name = "twins")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,8 +18,6 @@ public final class Twin {
     /**
      * The Id.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     private Long id;
 
@@ -38,22 +32,26 @@ public final class Twin {
     /**
      * The Pic.
      */
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @Getter
     private Pic my;
 
     /**
      * The Pic.
      */
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @Getter
     private Pic yours;
 
     /**
      * The Owner
      */
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @Getter
-    @JsonBackReference
     private User owner;
+
+    public Pic getMy() {
+        return this.my;
+    }
+
+    public Pic getYours() {
+        return this.yours;
+    }
 }
