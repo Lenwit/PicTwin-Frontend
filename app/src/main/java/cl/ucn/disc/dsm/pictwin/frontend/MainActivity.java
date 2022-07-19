@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         //Build the UserViewModel
-        this.userViewModel = userViewModelProvider
+        this.userViewModel = ViewModelProvider
                 .AndroidViewModelFactory
                 .getInstance(super.getApplication())
                 .create(UserViewModel.class);
