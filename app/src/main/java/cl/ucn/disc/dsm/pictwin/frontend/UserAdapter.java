@@ -45,12 +45,12 @@ public final class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHold
     }
 
     /**
-     * Called by RecyclerView tod siplay the data at the specified position. This method should
+     * Called by RecyclerView to display the data at the specified position. This method should
      * update the contents of the {@link ViewHolder#itemView} to reflect the item at the given
      * position.
      *
      */
-    @SuppressLint("DefaultLocate")
+    @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //Retrieve the Twin at position
